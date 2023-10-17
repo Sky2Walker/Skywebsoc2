@@ -109,7 +109,7 @@
         </form>
         <div class="subform">
         <p class="subform__text" id="subformText">Have alredy account?</p>
-        <a href="{{ url('/login') }}" class="log__in" id="logInLink">Log In</a>
+        <a href='{{ url('/login') }} 'class="log__in" id="logInLink">Log In</a>
         </div>
     </aside>
 

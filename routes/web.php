@@ -28,5 +28,7 @@ Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register'
 Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
 
+Route::get('/{username}', 'UserProfileController@showProfile');
+
 
 

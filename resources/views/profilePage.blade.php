@@ -34,11 +34,11 @@
                         </div>
                         <div class="info__text">
                             <div class="personal">
-                                <p class="name">Name</p>
-                                <p class="surname">Surname</p>
+                                <p class="name">{{ $user->first_name }}</p>
+                                <p class="surname">{{ $user->last_name }}</p>
                             </div>
-                            <p class="username">username</p>
-                            <p class="about">About</p>
+                            <p class="username">{{ $user->username }}</p>
+                            <p class="about">{{ $user->about }}</p>
                         </div>
                         <div class="verified">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
