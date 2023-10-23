@@ -11,24 +11,27 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('index'); // Используйте то же представление, которое возвращает MainController.
+        return view('login'); // Используйте то же представление, которое возвращает MainController.
     }
 
+    
     public function login(Request $request)
     {
-        // Валидация данных авторизации
+        // Валидация данных формы входа
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
         // Попытка аутентификации пользователя
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Если аутентификация успешна, перенаправьте пользователя на нужную страницу
-            return redirect('/profilefeed'); // Замените '/dashboard' на URL страницы, на которую вы хотите перенаправить пользователя после входа.
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            // Аутентификация прошла успешно
+            return redirect('/profile'); // Перенаправление на страницу после входа
         }
 
-        // Если аутентификация не удалась, верните пользователя на страницу входа с ошибкой
-        return redirect('/login')->with('error', 'Неверный email или пароль.');
+        // Если аутентификация не удалась, перенаправьте обратно с ошибкой
+        return back()->withErrors(['email' => 'Неправильный email или пароль']);
     }
+    
 }

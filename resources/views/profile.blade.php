@@ -32,7 +32,7 @@
                         </div>
                         <div class="info__text">
                             <div class="personal">
-                                <p class="name">Name</p>
+                                <p class="name"></p>
                                 <p class="surname">Surname</p>
                             </div>
                             <p class="username">username</p>

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\MainController@index');
-Route::get('/profilepage', 'App\Http\Controllers\ProfileController@profilePage');
-Route::get('/profile', 'App\Http\Controllers\ProfileController@profile');
-Route::get('/profilefeed', 'App\Http\Controllers\ProfileController@userFeed');
+//Route::get('/profilepage', 'App\Http\Controllers\ProfileController@profilePage');
+//Route::get('/{username}', 'App\Http\Controllers\ProfileController@show')->name('user.profile');
+//Route::get('/profilefeed', 'App\Http\Controllers\ProfileController@userFeed');
 
 Route::get('/', function () {
     return redirect('/register');
@@ -28,7 +28,6 @@ Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register'
 Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
 
-Route::get('/{username}', 'UserProfileController@showProfile');
 
 
 

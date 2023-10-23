@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -11,9 +12,11 @@ class ProfileController extends Controller
         return view('profilePage');
     }
 
-    public function profile()
+    public function show($username)
     {
-        return view('profile');
+        // Найти пользователя по никнейму
+        return view('profile', ['username' => $username]);
+       
     }
     
     public function userFeed()

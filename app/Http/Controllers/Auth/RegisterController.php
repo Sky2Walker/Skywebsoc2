@@ -22,10 +22,10 @@ class RegisterController extends Controller
         // Валидация данных регистрации.
         $request->validate([
             'email' => 'required|email|unique:users',
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
             'username' => 'required|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
         ]);
 
         // Создание нового пользователя.
@@ -40,6 +40,8 @@ class RegisterController extends Controller
 
         $user->save();
 
+
+        
         // После успешной регистрации, вы можете перенаправить пользователя на другую страницу.
         return redirect('/profile'); // На главную страницу, например.
     }
